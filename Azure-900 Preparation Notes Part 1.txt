@@ -1,0 +1,63 @@
+Describing Cloud Computing
+Cloud Computing
+It is providing computing services like Virtual machines, storage, databases, network, AI, ML, and IoT services over the internet. You don’t need physical infrastructure or need to manage it, all services can be used via the internet.
+
+Shared responsibility Model in Cloud
+IaaS — allows you to rent hardware and have control over OS (VM, VNet)
+PaaS — allows you to manage applications without controlling underlying OS (DB)
+SaaS — allows subscription to a software (Office 365)
+
+Cloud Models
+Private — Cloud that is built maintained and used by a single entity
+Public — Cloud is maintained by a third party anyone can use its services
+Hybrid — Uses both public and private cloud in an inter-connected environment. Users can choose which data to keep where
+Multi-cloud — More than 1 public cloud, some services from cloud 1, others from cloud 2, and so on..
+Azure arc — helps manage clouds (whether hybrid, private, single, or multi)
+VMware(gives VM) — easily transfer VMware from private cloud to azure
+Consumption-Based Model
+Cloud computing falls under OpEx (Operational Infrastructure) because cloud computing operates on a consumption-based model. With cloud computing, you don’t pay for the physical infrastructure, instead, you pay for the IT resources you use.
+
+Describing the Benefits of cloud computing
+Benefits of high availability and scalability
+Availability — Very less downtime(time for repairs and maintenance when service cannot be used), a part of SLA (Service level agreements)
+Scalability — easily adjust resources to meet demand.
+Vertical — means increasing or decreasing capacity of a resource (more data storage space, increasing processing power of VM)
+
+Horizontal — means adding or removing resources
+
+Benefits of Reliability and Predictability
+Reliability — the cloud is decentralized so if one center goes down others are still running
+Predictability
+Cost — can track resources in real-time and plan accordingly
+
+Performance — autoscaling, load balancing, high availability
+
+Benefits of governance and security
+Templates to ensure corporate standards
+Helps audit any resources that are out-of-standards
+Maintainance and patches are automatically taken care of
+More robust to DDOS than IaaS
+Benefits of Management in the cloud
+Easy scaling
+Deploy resources based on pre-set templates
+Monitor resource health
+Describing cloud Service Types
+Scenarios
+IaaS
+Lift-and-shift migration: You’re standing up cloud resources similar to your on-prem datacenter, and then simply moving the things running on-prem to running on the IaaS infrastructure.
+
+Testing and development: You have established configurations for development and test environments that you need to rapidly replicate. You can stand up or shut down the different environments rapidly with an IaaS structure while maintaining complete control.
+
+2. Paas
+
+Development framework: PaaS provides a framework that developers can build upon to develop or customize cloud-based applications. Similar to the way you create an Excel macro, PaaS lets developers create applications using built-in software components. Cloud features such as scalability, high availability, and multi-tenant capability are included, reducing the amount of coding that developers must do.
+
+Analytics or business intelligence: Tools provided as a service with PaaS allow organizations to analyze and mine their data, finding insights and patterns and predicting outcomes to improve forecasting, product design decisions, investment returns, and other business decisions.
+
+3. Saas
+
+Email and messaging.
+
+Business productivity applications.
+
+Finance and expense tracking.

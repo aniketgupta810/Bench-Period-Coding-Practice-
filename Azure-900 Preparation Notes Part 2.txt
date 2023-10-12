@@ -1,0 +1,179 @@
+Describing the Core Architectural components of Azure
+The Azure core architecture can be broken down into 2 parts: physical infrastructure and management infrastructure
+
+
+Azure Physical Infrastructure
+Regions — Contain one or many data centers that are networked together
+Availability zones — physically separate data centers within an azure region
+Region Pairs — Most Azure regions are paired with another region within the same geography (such as US, Europe, or Asia) at least 300 miles away.
+Azure Management Infrastructure
+Azure Resource and Resource group
+Resource is basic block — VM, virtual networks, databases, cognitive services, etc.
+
+Resource group — Groupings of resources
+
+Subscriptions — are a unit of management, billing, and scale. First thing that needs to be created if you are using/ shifting to Azure
+Management groups — Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called management groups and apply governance conditions to the management groups.
+Hands-on: Creating an Azure Resource
+Sign in to the Azure portal.
+Select Create a resource > Compute > Virtual Machine > Create.
+The Create a virtual machine pane opens to the basics tab.
+Verify or enter the following values for each setting. If a setting isn’t specified, leave the default value.
+After creating a VM, we can verify that Azure created a VM along with all associated resources
+Hands-on: Verify an existing resource
+Select Home
+Select Resource groups
+Select the [Resource group name] resource group
+Describing Azure Compute and Networking Services
+Azure Virtual Machines
+VMs provide IaaS in the form of Virtualized server. VMs can be created from pre-existing templates
+Scale VMs in Azure — VM can be single or multiple for scalability, availability, and redundancy
+2.1 VM scale sets — The number of VM instances can automatically increase or decrease in response to demand, or you can set it to scale based on a defined schedule. Virtual machine scale sets also automatically deploy a load balancer to make sure that your resources are being used efficiently. They also provision VMs automatically.
+
+2.2 VM availability sets -
+
+Update domain — All machines in one update domain will be updated together
+
+Fault domain — All VMs are split across different Fault domains, each fault domain has the same power source. This helps incase of a power failure.
+
+Any service failure notification that might affect VM availability can be viewed in VM only. Can be accessed over the internet using an IP address
+
+Azure Virtual Desktop
+Azure VDI is a type of Azure VM. It is a type of desktop and application virtualization that runs on the cloud. Supports remote desktop clients on Mac and IoS. Charged for VM where AVD runs. ADV users should exist in the same AD that is linked with Azure AVD.
+
+Azure Containers
+A container bundles an app and its dependencies, then deploy it as a unit to a container host. Much like VMs, we have multiple Containers. The only difference is that while VMs virtualize hardware, Containers virtualize the operating system. Allows running multiple containers on a single host. Eg- Docker
+
+Accessible over internet
+Can run on Windows or Linux
+Auto Scaling
+Azure Container Instances — Simplest way to run a container without any VMs (PaaS)
+
+Azure Functions
+Event-driven, serverless compute option that does not require VM or Containers. Benefits of Azure functions-
+
+Scale automatically on the basis of a demand
+Only charged when the function is used
+Azure Application Hosting Options
+Ways to host-
+
+VM — a way to host Apps with full control of the hosting environment
+Container — good option, as it can isolate and individually manage different aspects of hosting solutions
+Azure App Services — an HTTP-based service for hosting web applications, REST APIs, and mobile backends. It supports multiple languages, including .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. It also supports both Windows and Linux environments. Enables you to perform automated deployment from Azure DevOps. Advantages-
+Deployment and management integrated into the platform
+
+Endpoints can be secured
+
+Load balancing and traffic manager ensure high availability
+
+Sites can be scaled quickly to manage traffic
+
+Azure Virtual Networking
+Azure virtual networks and subnetworks enable communication between VMs, web apps, databases with each other, and users on the internet or on-premises systems. There are 2 kinds of end-points in an Azure network to enable communication between internal or external resources-
+
+Private endpoint — private IP address assigned to a resource within an Azure network
+Public endpoint — Public IP address is assigned to a resource and can be accessed by anyone over the internet
+Highlights-
+
+Isolation and Segmentation — Multiple isolated networks can be created in Azure. Public or Private IP addresses can be chosen from an IP address range for a network
+Communication between Azure Resources -
+VMs can connect not only to VM but any other resource
+
+Service endpoints can connect to multiple Azure resources
+
+3. Communicate with on-premises resources — Azure enables the creation of networks that include local and cloud resources, here are 3 ways to achieve this-
+
+Point-to-site virtual private network connections are from a computer outside your organization back into your corporate network. In this case, the client computer initiates an encrypted VPN connection to connect to the Azure virtual network.
+
+Site-to-site virtual private networks link your on-premises VPN device or gateway to the Azure VPN gateway in a virtual network. In effect, the devices in Azure can appear as being on the local network. The connection is encrypted and works over the internet.
+
+Azure ExpressRoute provides dedicated private connectivity to Azure that doesn’t travel over the internet. ExpressRoute is useful for environments where you need greater bandwidth and even higher levels of security.
+
+4. Route Network Traffic — Azure lets you control routing as:
+
+Router Tables allow you to define rules about how traffic should be directed
+
+Border Gateway Protocol propagates on-premises BGP to Azure networks
+
+5. Filter Network Traffic -
+
+Network Security Groups — to create multiple outbound and inbound security rules
+
+Network Virtual Appliance — This is a VM that aids information flow to other devices on the network
+
+6. Connect Virtual Networks — Peering ( the exchange of data directly between internet service providers, rather than via the internet ) is used to connect Virtual Networks which is completely private
+
+Azure Virtual Private Networks
+A virtual private network (VPN) uses an encrypted tunnel within another network.
+
+VPN Gateways — You can deploy only one VPN gateway in each virtual network. However, you can use one gateway to connect to multiple locations, which includes other virtual networks or on-premises datacenters. A VPN type needs to be defined -
+Policy-based
+
+Route based
+
+2. High Availability scenarios — To ensure VPN is highly available and fault tolerant -
+
+Active/ Standby — 2 instances are deployed, 2nd one is a substitute
+
+Active/active — A unique IP address is assigned to each instance. Then separate tunnels are created from the on-premises devices to each IP address
+
+ExpressRoute failover — Another high-availability option is to configure a VPN gateway as a secure failover path for ExpressRoute connections.
+
+Zone redundant gateways
+
+Azure ExpressRoute
+Helps connect on-premises data with a cloud over a private connection. Connects don’t go over the internet.
+
+Features and Benefits-
+Global connectivity
+
+High reliability via built-in redundancy
+
+Dynamic routing via border gateway protocol
+
+2. Connectivity models
+
+CloudExchange colocation — If your facility is co-located at a cloud exchange, you can request a virtual cross-connect to the Microsoft cloud.
+
+Point-to-point Ethernet connection -A point-to-point connection between your facility and the Microsoft cloud
+
+Any-to-any networks — Connect your WAN with Azure
+
+Directly from ExpressRoute sites — Connect to Microsoft’s global network
+
+Describe Azure DNS
+Benefits-
+
+Reliability and Performance -
+Security
+Ease of use
+Customizable VN with private domain
+Alias records
+Azure Storage Services
+Azure Storage Accounts
+Standard general-purpose v2
+Premium block blobs
+Premium file shares
+Premium page blobs
+Azure Storage redundancy
+Redundancy in the Primary region — Data is replicated 3 times in the primary region for which Azure offers two options
+Locally redundant Storage (LRS) — Replicates data 3 times within a single data center in primary region. Lowest cost redundancy option. Offers least durability.
+
+
+Zone redundant Storage (ZRS) — Replicates datavacross 3 different availability zone in primary region .Durable.
+
+
+2. Redundancy in a secondary region — Data is replicated to a secondary region that is miles away from primary region. Azure offers 2 options
+
+Geo-redundant Storage (GRS) — GRS copies data 3 times within a primary and secondary region using LRS.
+
+
+Geo-zone-redundant storage (GZRS) — Data copied in primary region using ZRS, data replicated in secondary region using LRS
+
+
+Read access to data in the secondary region — Data in the secondary region is only available to be read-only if the primary region is failed if read access is not enabled otherwise always readable
+
+Azure Storage Services
+Includes the following services -
+
+Azure Blob Storage — Stores unstructured data that is accessible over the internet. Blob Storage Tiers — Helps you store data in a cost effective manner

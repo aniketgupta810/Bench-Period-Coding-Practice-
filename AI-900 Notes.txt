@@ -1,0 +1,212 @@
+Machine Learning
+This is the core of most AI solutions.
+
+Data scientists can use the data they have and train machine learning models so that they can make predications and inferences based on the relationships they find In the data.
+
+[Error importing image]
+
+As you can see, the data scientists provide both the images and names of wildflowers. The names of the flowers would be classed as a label. This data is then processed so that the algorithm can identify wildflowers based on the data it receives (Flower matches name).
+
+Microsoft offer a few services for this service called Azure Machine Learning.
+
+This has a few features:
+
+
+There is also, Azure Machine Learning studio: Microsoft Azure Machine Learning Studio
+
+
+In this studio, you can:
+
+View runs, metrics, logs, outputs, and so on.
+Author and edit notebooks and files.
+Manage common assets, such as
+Data credentials
+Compute
+Environments
+Visualize run metrics, results, and reports.
+Visualize pipelines authored through developer interfaces.
+Author AutoML jobs.
+More will be covered on this later…
+
+Anomaly Detection
+“A machine learning based technique that analyzes data over time and identifies unusual changes.”
+
+Things of an AI that can spot something that doesn’t look right. Like other AIs, the service will be more accurate ingested rich data. Often the data used for anomaly detection is telemetry.
+
+Anomaly detector
+“The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API’s algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.”
+
+
+What is the Univariate Anomaly Detector? — Azure Cognitive Services | Microsoft Docs
+
+Computer Vision
+Seeing AI is a great example of Computer Vision in action: Seeing-AI page
+
+This is an area of AI that can handle visual processing. Sort of like a pair of eyes.
+
+Computer Vision is broken out into a few models and capabilities. This are listed below:
+
+Image Classification:
+
+Involves training a machine to classify what it is seeing. This of a traffic monitoring system that knows the different types of vehicles are, such as a taxi.
+
+
+Object Detection:
+
+OD goes a step further than image classification as it adds a bounding box. This can help a monitoring system know what type of vehicle and where it is.
+
+
+Semantic Segmentation:
+
+This is similar to OD however, instead of a bounding box, it classifies individual pixels and classifies what they belong to. Sort of like highlighting objects and creating a key.
+
+
+Image Analysis
+
+IA extracts information from an image and helps catalog or describe what it is seeing. Think of closing your eyes and a friend describing what they can see.
+
+
+Face Detection, Analysis and Recognition
+
+This is a specializes form of OD that locates human faces within an image. This can be combined with classification and facial geometry analysis to infer details such as age, emotion or facial features.
+
+
+Optical Character Recognition (OCR)
+
+Think of detecting and reading text within an image. Reading text from a scanned document or from an image you took with your camera; street names, building names, brands etc…
+
+
+The below are features that are broken out under Computer Vision services:
+
+
+Natural Language Processing
+This is an area of AI that deals with creating software that understand written and spoken language.
+
+Analyze and interpret text in documents, email messages, and other sources.
+Interpret spoken language, and synthesize speech responses.
+Automatically translate spoken or written phrases between languages.
+Interpret commands and determine appropriate actions.
+An example this is a VR games called Starship Commander. In this game you can interact with the game using your voice. Another example is the LUIS demo here.
+
+
+Here you can write full sentences and it will pick up on key words around lighting.
+
+Below are some of the solutions within Azure:
+
+
+Knowledge Mining
+The name is one of the easier to remember what it does. This mines data to extract information in order to create a knowledge store.
+
+Thing of creating search functionality for a huge unstructured data store that would be impossible for a human to index.
+
+Responsibility around AI
+Microsoft and others understand the risk around AI. I often link back to the phrase “An AI is only as good as the person programming it”. This would be true as if you had an unexperienced person, then the AI may not get results. If you had a person who is bias, then they will train that AI to be bias. It may seem like it’s giving good results, but in fact it would be focused on the scientist’s agenda.
+
+Microsoft break out some of the AI risks here:
+
+
+To counter, or reduce these risks, Microsoft follow the six principles which they refer to as Responsible AI principles.
+
+Fairness
+
+A personal loan is often the example to understand this principle. A loan review should be done on the facts and not based on attributes that aren’t related: gender or ethnicity for example. It’s essentially avoided bias outputs.
+
+Reliability and Safety
+
+Self driving cars, or auto medical diagnosis are great examples for this. The AI will need to be rigorously tested so that it doesn’t bring harm to human life due to error.
+
+Privacy and Security
+
+The AI should be secure, as with anything. This is often targeted around handling the data and the security around it. This goes alongside privacy as some of the data being processed could be sensitive. Having the AI reviewed is key so that no data is access or leaked due to unexpected outcomes.
+
+Inclusiveness
+
+AI systems should empower and engage people. They shouldn’t leave anyone out, so testing and design should be aimed to provide value to all, regardless of gender, sexual orientation or ethnicity.
+
+Transparency
+
+How the AI system is working and what are its limits. If it has limits, the users will need to be aware so that they there is no false positives or confusion.
+
+Accountability
+
+Designers and developers should be working within a framework of governances and organisational principles that ensures the solution meets ethical and legal standards. Asking yourself if it went wrong, who is responsible?
+
+Azure Machine Learning
+“Machine learning is a technique that uses mathematics and statistics to create a model that can predict unknown values.”
+
+
+In order to get the intended outcome, we use features and labels. This applies to both classification and regression problems.
+
+Using a pet shop as an example. We want to predict the type of pet someone will choose.
+
+Feature/s: This is the input. Think of it as data per column. For this example, our features would be a person’s age, location, #dependencies and income.
+Label: This is the output. For this, the output would be what pet did they chose: dog, cat, fish etc…
+With this information, we can now train our model to predict what type of pet a person is most likely going to choose (Label) based on their attributes (Features).
+
+Azure Machine Learning Workspaces
+We can create our ML workspace by using the Azure portal and creating an AML resource:
+
+
+It can also be done via the ML studio:
+
+
+Once we have our workspace, we would need to manage the compute. This is broken out into 4:
+
+Compute Instances: Development workstations that data scientists can use to work with data and models.
+Compute Clusters: Scalable clusters of virtual machines for on-demand processing of experiment code.
+Inference Clusters: Deployment targets for predictive services that use your trained models.
+Attached Compute: Links to existing Azure compute resources, such as Virtual Machines or Azure Databricks clusters.
+Once we have our compute, we go on to datasets. This dataset is what the model will use to train. Within Azure, here is an example of what is needed during creation:
+
+Basic Info:
+
+Web URL: https://aka.ms/bike-rentals
+Name: bike-rentals
+Dataset type: Tabular
+Description: Bicycle rental data
+Skip data validation: do not select
+Settings and preview:
+File format: Delimited
+Delimiter: Comma
+Encoding: UTF-8
+Column headers: Only first file has headers
+Skip rows: None
+Dataset contains multi-line data: do not select
+Schema:
+
+Include all columns other than Path
+Review the automatically detected types
+Confirm details:
+Do not profile the dataset after creation
+Now that we have our data, we will need to train our ML model. Within Azure, there are automated machine learning capabilities. These are laid out as:
+
+Classification (predicting categories or classes)
+Regression (predicting numeric values)
+Time series forecasting (predicting numeric values at a future point in time)
+Azure will then give you multiple options and outputs in order to choose the best model via experiments.
+
+Model as a service
+Once you have completed your training of models, you can deploy the best performing model as a service for client applications to use.
+
+In Azure ML, you can deploy a service as an Azure container instances (ACI) or Azure Kubernetes Service (AKS). For anything production, AKS is recommended. ACI is designed for testing and development.
+
+Exploring Computer Vision
+This is creating AI solutions that can “see” the world around us and to make sense of it.
+
+Examples of use cases:
+
+· Content Organization: Identify people or objects in photos and organize them based on that identification. Photo recognition applications like this are commonly used in photo storage and social media applications.
+
+· Text Extraction: Analyze images and PDF documents that contain text and extract the text into a structured format.
+
+· Spatial Analysis: Identify people or objects, such as cars, in a space and map their movement within that space.
+
+The important thing to understand is that AI doesn’t have eyes. It’s vision works in different ways. To an AI, an image is just an array of pixel values:
+
+
+Computer Vision: A specific resource for the Computer Vision service. Use this resource type if you don’t intend to use any other cognitive services, or if you want to track utilization and costs for your Computer Vision resource separately.
+Cognitive Services: A general cognitive services resource that includes Computer Vision along with many other cognitive services; such as Text Analytics, Translator Text, and others. Use this resource type if you plan to use multiple cognitive services and want to simplify administration and development.
+Whichever type of resource you choose to create, it will provide two pieces of information that you will need to use it:
+
+A key that is used to authenticate client applications.
+An endpoint that provides the HTTP address at which your resource can be accessed.
